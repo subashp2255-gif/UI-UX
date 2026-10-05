@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-void: #07080E;
+    --bg-void-card: #0B0E17;
+    --bg-midnight: #0E172E;
+    --bg-midnight-card: #162344;
+    --cyan: #00D2FF;
+    --blue: #2979FF;
+    --violet: #7C4DFF;
+    --purple: #9C27B0;
+  }
+
+  body {
+    background-color: #07080E;
+    color: #E2E8F0;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom Blueprint & Cyber Grid Utilities */
+.bg-grid-blueprint {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 210, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 210, 255, 0.05) 1px, transparent 1px);
+}
+
+.bg-grid-dots {
+  background-size: 24px 24px;
+  background-image: radial-gradient(rgba(124, 77, 255, 0.15) 1px, transparent 1px);
+}
+
+.bg-grid-blueprint-fine {
+  background-size: 16px 16px;
+  background-image: 
+    linear-gradient(to right, rgba(41, 121, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(41, 121, 255, 0.04) 1px, transparent 1px);
+}
+
+/* Wireframe Mode styles when activated */
+[data-wireframe-mode="true"] .wireframe-target {
+  outline: 1px dashed rgba(0, 210, 255, 0.5) !important;
+  background: rgba(14, 23, 46, 0.85) !important;
+}
+
+[data-wireframe-mode="true"] .wireframe-target::before {
+  content: attr(data-component-tag);
+  position: absolute;
+  top: -10px;
+  left: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  padding: 1px 6px;
+  background: #00D2FF;
+  color: #07080E;
+  font-weight: 700;
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+  z-index: 40;
+  text-transform: uppercase;
+}
+
+/* Glow Utilities */
+.glow-cyan-sm {
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.25);
+}
+
+.glow-cyan-md {
+  box-shadow: 0 0 28px rgba(0, 210, 255, 0.35);
+}
+
+.glow-cyan-lg {
+  box-shadow: 0 0 45px rgba(0, 210, 255, 0.45);
+}
+
+.glow-violet-md {
+  box-shadow: 0 0 30px rgba(124, 77, 255, 0.35);
+}
+
+.glow-text-cyan {
+  text-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: rgba(14, 23, 46, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 210, 255, 0.12);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(22, 35, 68, 0.85);
+  border-color: rgba(0, 210, 255, 0.35);
+  box-shadow: 0 10px 30px -10px rgba(0, 210, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #07080E;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #162344;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 210, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2979FF;
+}
+
+/* Keyframes */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes flowLine {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 6s ease-in-out infinite 2.5s;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
