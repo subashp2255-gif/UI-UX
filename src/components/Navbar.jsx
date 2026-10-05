@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, Terminal } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import UXORALogo from './UXORALogo';
-import { NAV_LINKS, EVENT_INFO } from '../data/hackathonData';
+import { NAV_LINKS } from '../data/hackathonData';
 
-export default function Navbar({ onOpenRegister, wireframeMode, setWireframeMode }) {
+export default function Navbar({ onOpenRegister }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
@@ -70,29 +70,12 @@ export default function Navbar({ onOpenRegister, wireframeMode, setWireframeMode
               })}
             </nav>
 
-            {/* Right Controls: Wireframe Mode Switch + CTA */}
+            {/* Right Controls: Primary CTA */}
             <div className="hidden sm:flex items-center gap-3">
-              {/* Wireframe Inspector Toggle Button */}
-              <button
-                type="button"
-                onClick={() => setWireframeMode(!wireframeMode)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono rounded-lg border transition-all duration-200 ${
-                  wireframeMode
-                    ? 'bg-cyan-500/20 text-cyan-300 border-cyan-400 shadow-[0_0_15px_rgba(0,210,255,0.3)]'
-                    : 'bg-[#0E172E]/80 text-slate-400 border-slate-700/60 hover:text-slate-200 hover:border-slate-500'
-                }`}
-                title="Toggle UX Wireframe & Grid Mode"
-              >
-                <Terminal className="w-3.5 h-3.5 text-cyan-400" />
-                <span className="hidden md:inline">WIREFRAME</span>
-                <span className={`w-1.5 h-1.5 rounded-full ${wireframeMode ? 'bg-cyan-400 animate-pulse' : 'bg-slate-500'}`} />
-              </button>
-
-              {/* Primary CTA */}
               <button
                 type="button"
                 onClick={onOpenRegister}
-                className="relative inline-flex items-center justify-center gap-2 px-5 py-2 text-xs uppercase font-mono tracking-wider font-bold text-white bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 rounded-lg shadow-[0_0_20px_rgba(41,121,255,0.4)] hover:shadow-[0_0_28px_rgba(0,210,255,0.6)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] border border-cyan-300/40"
+                className="relative inline-flex items-center justify-center gap-2 px-5 py-2 text-xs uppercase font-mono tracking-wider font-bold text-white bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 rounded-lg shadow-[0_0_20px_rgba(41,121,255,0.4)] hover:shadow-[0_0_28px_rgba(0,210,255,0.6)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] border border-cyan-300/40 cursor-pointer"
               >
                 <span>Register Now</span>
                 <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -101,17 +84,6 @@ export default function Navbar({ onOpenRegister, wireframeMode, setWireframeMode
 
             {/* Mobile Hamburger Button */}
             <div className="flex sm:hidden items-center gap-2">
-              <button
-                type="button"
-                onClick={() => setWireframeMode(!wireframeMode)}
-                className={`p-2 rounded-lg border font-mono text-[10px] ${
-                  wireframeMode ? 'bg-cyan-500/20 border-cyan-400 text-cyan-300' : 'bg-[#0E172E] border-slate-800 text-slate-400'
-                }`}
-                aria-label="Toggle wireframe mode"
-              >
-                GRID
-              </button>
-
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

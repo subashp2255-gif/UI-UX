@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function BackgroundGrid({ wireframeMode }) {
+export default function BackgroundGrid() {
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
       {/* Primary Ambient Glows */}
@@ -32,22 +32,6 @@ export default function BackgroundGrid({ wireframeMode }) {
       <div className="absolute inset-y-0 right-12 w-[1px] bg-cyan-500/[0.04] hidden lg:block" />
       <div className="absolute inset-x-0 top-24 h-[1px] bg-blue-500/[0.04]" />
 
-      {/* Wireframe Inspection Overlay (when wireframe mode is toggled) */}
-      {wireframeMode && (
-        <div className="absolute inset-0 z-10 pointer-events-none transition-opacity duration-300">
-          <div className="max-w-7xl mx-auto h-full px-4 sm:px-6 lg:px-8 grid grid-cols-12 gap-4 opacity-15">
-            {Array.from({ length: 12 }).map((_, i) => (
-              <div 
-                key={i} 
-                className="h-full border-x border-dashed border-cyan-400 bg-cyan-400/[0.02] flex flex-col justify-between py-2 text-[9px] font-mono text-cyan-400"
-              >
-                <span>COL_{String(i + 1).padStart(2, '0')}</span>
-                <span>8.33%</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
 
       {/* Subtle Noise / Grain Overlay */}
       <div 

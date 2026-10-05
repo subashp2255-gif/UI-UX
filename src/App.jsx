@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Hook from './components/Hook';
@@ -20,41 +20,17 @@ import BackgroundGrid from './components/BackgroundGrid';
 import { REGISTRATION_URL } from './data/hackathonData';
 
 export default function App() {
-  const [wireframeMode, setWireframeMode] = useState(false);
-
   const handleOpenRegister = () => {
     window.open(REGISTRATION_URL, '_blank', 'noopener,noreferrer');
   };
 
   return (
-    <div 
-      className="relative min-h-screen bg-[#07080E] text-[#E2E8F0] selection:bg-cyan-500/20 selection:text-cyan-300"
-      data-wireframe-mode={wireframeMode ? "true" : "false"}
-    >
+    <div className="relative min-h-screen bg-[#07080E] text-[#E2E8F0] selection:bg-cyan-500/20 selection:text-cyan-300">
       {/* Background Grids, Blueprint Lines, and Ambient Light */}
-      <BackgroundGrid wireframeMode={wireframeMode} />
-
-      {/* Wireframe Mode Notification Banner when enabled */}
-      {wireframeMode && (
-        <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 bg-[#0E172E] border border-cyan-400 text-cyan-300 px-4 py-2 rounded-full font-mono text-xs shadow-[0_0_20px_rgba(0,210,255,0.4)] flex items-center gap-3">
-          <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
-          <span>UX BLUEPRINT MODE ACTIVE (12-COL GRID + HUD TARGETS)</span>
-          <button
-            type="button"
-            onClick={() => setWireframeMode(false)}
-            className="text-slate-400 hover:text-white underline text-[11px]"
-          >
-            Exit
-          </button>
-        </div>
-      )}
+      <BackgroundGrid />
 
       {/* Sticky Navigation */}
-      <Navbar 
-        onOpenRegister={handleOpenRegister}
-        wireframeMode={wireframeMode}
-        setWireframeMode={setWireframeMode}
-      />
+      <Navbar onOpenRegister={handleOpenRegister} />
 
       {/* Main Page Content Flow */}
       <main className="relative z-10">

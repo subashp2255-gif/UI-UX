@@ -49,28 +49,6 @@
     linear-gradient(to bottom, rgba(41, 121, 255, 0.04) 1px, transparent 1px);
 }
 
-/* Wireframe Mode styles when activated */
-[data-wireframe-mode="true"] .wireframe-target {
-  outline: 1px dashed rgba(0, 210, 255, 0.5) !important;
-  background: rgba(14, 23, 46, 0.85) !important;
-}
-
-[data-wireframe-mode="true"] .wireframe-target::before {
-  content: attr(data-component-tag);
-  position: absolute;
-  top: -10px;
-  left: 8px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 9px;
-  padding: 1px 6px;
-  background: #00D2FF;
-  color: #07080E;
-  font-weight: 700;
-  border-radius: 2px;
-  letter-spacing: 0.05em;
-  z-index: 40;
-  text-transform: uppercase;
-}
 
 /* Glow Utilities */
 .glow-cyan-sm {
