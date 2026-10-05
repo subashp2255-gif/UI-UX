@@ -20,7 +20,7 @@ export default function Challenge() {
 
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-white tracking-tight leading-[1.12] mb-6">
             Three Problems. <br />
-            Twelve Teams. <br />
+            Thirty Teams. <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-purple-400">
               One Challenge.
             </span>
@@ -113,9 +113,9 @@ export default function Challenge() {
         <div className="mt-12 p-5 rounded-2xl bg-[#0E172E]/60 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4 font-mono text-xs text-slate-400">
           <div className="flex items-center gap-2.5">
             <Users className="w-4 h-4 text-cyan-400 shrink-0" />
-            <span>Problem statements are allotted randomly to 4 teams each during the 1:40 PM afternoon reveal.</span>
+            <span>Problem statements are allotted randomly to 10 teams each during the 1:40 PM afternoon reveal.</span>
           </div>
-          <span className="text-cyan-300 font-bold shrink-0">12 Teams Total · 60 Designers</span>
+          <span className="text-cyan-300 font-bold shrink-0">30 Teams Total · 60 Designers</span>
         </div>
 
       </div>

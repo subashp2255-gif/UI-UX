@@ -21,14 +21,12 @@ export const NAV_LINKS = [
   { name: "Morning Sessions", href: "#morning" },
   { name: "Challenge", href: "#challenge" },
   { name: "Process", href: "#process" },
-  { name: "Judging", href: "#judging" },
-  { name: "Schedule", href: "#schedule" },
   { name: "FAQ", href: "#faq" },
 ];
 
 export const HERO_STATS = [
   { value: "60", label: "Participants", subtext: "Hand-picked cohort" },
-  { value: "12", label: "Teams", subtext: "5 members each" },
+  { value: "30", label: "Teams", subtext: "2 members each" },
   { value: "03", label: "Problem Statements", subtext: "Real-world briefs" },
   { value: "01", label: "Day", subtext: "Hands-on intensive" },
 ];
@@ -152,7 +150,7 @@ export const CHALLENGE_STATEMENTS = [
   {
     id: "PROBLEM 01",
     label: "Challenge",
-    teamsAssigned: "Teams 01 – 04",
+    teamsAssigned: "Teams 01 – 10",
     status: "Sealed Brief",
     releaseTime: "01:40 PM",
     docCode: "UXORA // SEC-01",
@@ -162,7 +160,7 @@ export const CHALLENGE_STATEMENTS = [
   {
     id: "PROBLEM 02",
     label: "Challenge",
-    teamsAssigned: "Teams 05 – 08",
+    teamsAssigned: "Teams 11 – 20",
     status: "Sealed Brief",
     releaseTime: "01:40 PM",
     docCode: "UXORA // SEC-02",
@@ -172,7 +170,7 @@ export const CHALLENGE_STATEMENTS = [
   {
     id: "PROBLEM 03",
     label: "Challenge",
-    teamsAssigned: "Teams 09 – 12",
+    teamsAssigned: "Teams 21 – 30",
     status: "Sealed Brief",
     releaseTime: "01:40 PM",
     docCode: "UXORA // SEC-03",
@@ -380,7 +378,7 @@ export const TAKEAWAYS_LIST = [
   "A rigorous end-to-end user flow with logic paths",
   "A high-quality set of structural wireframes",
   "A presentation-ready design pitch defending your choices",
-  "Invaluable experience collaborating in an agile 5-person design team",
+  "Invaluable experience collaborating in an agile 2-person design squad",
   "A comprehensive starting point for a real portfolio case study",
   "Official UXORA E-Certificate of Participation & Achievement",
 ];
@@ -398,12 +396,12 @@ export const FAQ_LIST = [
   },
   {
     q: "How many people can be in a team?",
-    a: "Teams strictly consist of 5 members. If you register as a solo participant or duo, our organizers will match you into a complementary 5-person team during morning check-in.",
+    a: "Teams strictly consist of 2 members (30 teams total, 60 participants). If you register as a solo participant, our organizers will match you into a complementary duo team during morning check-in.",
     category: "Teams",
   },
   {
     q: "How many problem statements are there?",
-    a: "There are 3 distinct real-world problem statements covering Fintech, Healthcare, and Sustainable Logistics. Each statement will be distributed across 4 teams.",
+    a: "There are 3 distinct real-world problem statements. Each statement will be distributed across 10 teams (30 teams total).",
     category: "Challenge",
   },
   {
@@ -413,7 +411,7 @@ export const FAQ_LIST = [
   },
   {
     q: "Is this only about making beautiful UI?",
-    a: "Absolutely not. This is a learning-focused UX hackathon. The highest weighted criterion is Wireframe Quality (20%) and Problem Understanding (15%). Usability and reasoning trump flashy colors.",
+    a: "Absolutely not. This is a learning-focused UX hackathon. The highest focus is on Wireframe Quality and Problem Understanding. Usability and reasoning trump flashy colors.",
     category: "Judging",
   },
 ];

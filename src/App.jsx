@@ -9,8 +9,6 @@ import BuildProcess from './components/BuildProcess';
 import LearningOutcomes from './components/LearningOutcomes';
 import TeamExperience from './components/TeamExperience';
 import FinalPresentation from './components/FinalPresentation';
-import Judging from './components/Judging';
-import Schedule from './components/Schedule';
 import Audience from './components/Audience';
 import Takeaways from './components/Takeaways';
 import FAQ from './components/FAQ';
@@ -58,22 +56,16 @@ export default function App() {
         {/* 08. Collaborative Team Experience & Whiteboard */}
         <TeamExperience />
 
-        {/* 09. Final Presentation Architecture (7 Steps) */}
+        {/* 08. Final Presentation Architecture (7 Steps) */}
         <FinalPresentation />
 
-        {/* 10. Judging Matrix & Wireframe Spotlight */}
-        <Judging />
-
-        {/* 11. Event Timetable & Room Locations */}
-        <Schedule />
-
-        {/* 12. Who Is This For? & Manifesto Quote */}
+        {/* 09. Who Is This For? & Manifesto Quote */}
         <Audience onOpenRegister={handleOpenRegister} />
 
-        {/* 13. Outcomes Checklist & Official E-Certificate */}
+        {/* 10. Outcomes Checklist & Official E-Certificate */}
         <Takeaways onOpenRegister={handleOpenRegister} />
 
-        {/* 14. Interactive FAQ Accordion */}
+        {/* 11. Interactive FAQ Accordion */}
         <FAQ />
 
         {/* 15. Final Climax Call To Action */}

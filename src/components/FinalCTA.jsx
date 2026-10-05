@@ -27,7 +27,7 @@ export default function FinalCTA({ onOpenRegister }) {
         {/* Eyebrow Pill */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0E172E] border border-cyan-400/30 text-xs font-mono text-cyan-300 mb-8 shadow-[0_0_20px_rgba(0,210,255,0.2)]">
           <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-          <span>LIMITED TO 60 PARTICIPANTS · 12 TEAMS</span>
+          <span>LIMITED TO 60 PARTICIPANTS · 30 TEAMS</span>
         </div>
 
         {/* Main Dramatic Headline */}

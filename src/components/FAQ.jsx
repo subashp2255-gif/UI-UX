@@ -27,7 +27,7 @@ export default function FAQ() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-cyan-400 mb-3 bg-[#0E172E] px-3 py-1 rounded-md border border-cyan-500/20">
-            <span>13 // FREQUENTLY ASKED QUESTIONS</span>
+            <span>11 // FREQUENTLY ASKED QUESTIONS</span>
           </div>
 
           <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-white tracking-tight leading-[1.12] mb-6">

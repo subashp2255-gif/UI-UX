@@ -14,7 +14,7 @@ export default function Takeaways({ onOpenRegister }) {
         {/* Section Header */}
         <div className="max-w-3xl mb-16 sm:mb-20">
           <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-cyan-400 mb-3 bg-[#0E172E] px-3 py-1 rounded-md border border-cyan-500/20">
-            <span>12 // POST-HACKATHON ARTIFACTS</span>
+            <span>10 // POST-HACKATHON ARTIFACTS</span>
           </div>
 
           <h2 className="text-3xl sm:text-5xl lg:text-6xl font-display font-extrabold text-white tracking-tight leading-[1.12] mb-6">
