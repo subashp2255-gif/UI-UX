@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Clock, CheckCircle2, MapPin } from 'lucide-react';
+import { CheckCircle2, MapPin } from 'lucide-react';
 import { MORNING_TIMELINE } from '../data/hackathonData';
 
 export default function LearningTimeline() {
@@ -42,7 +42,7 @@ export default function LearningTimeline() {
 
               return (
                 <div
-                  key={item.time}
+                  key={item.title}
                   onClick={() => setActiveSession(idx)}
                   className={`group relative p-4 rounded-xl transition-all duration-200 cursor-pointer border ${
                     isSelected
@@ -59,14 +59,13 @@ export default function LearningTimeline() {
                     }`}
                   />
 
-                  {/* Header: Time & Phase */}
+                  {/* Header: Module & Phase */}
                   <div className="flex items-center justify-between gap-2 mb-1.5">
-                    <span className="font-mono text-sm font-bold text-cyan-300 flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5 text-cyan-400" />
-                      {item.time}
+                    <span className="font-mono text-xs font-bold text-cyan-400 uppercase tracking-wider">
+                      MODULE 0{idx + 1}
                     </span>
                     <span className="font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-slate-900 text-slate-400 border border-slate-800">
-                      {item.duration} · {item.phase}
+                      {item.phase}
                     </span>
                   </div>
 
@@ -107,12 +106,9 @@ export default function LearningTimeline() {
 
               {/* Main Content Info */}
               <div className="my-6">
-                <div className="flex items-baseline gap-3 mb-2">
-                  <span className="font-mono text-2xl font-bold text-cyan-400">
-                    {MORNING_TIMELINE[activeSession].time}
-                  </span>
-                  <span className="text-xs font-mono text-slate-400">
-                    ({MORNING_TIMELINE[activeSession].duration})
+                <div className="mb-2">
+                  <span className="font-mono text-xs uppercase tracking-wider text-cyan-400 font-bold">
+                    PHASE: {MORNING_TIMELINE[activeSession].phase}
                   </span>
                 </div>
 

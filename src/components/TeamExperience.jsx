@@ -65,21 +65,21 @@ export default function TeamExperience() {
           </h2>
 
           <p className="text-base sm:text-lg text-slate-300 font-light leading-relaxed">
-            Design is never a solo pursuit. Collaborate with your partner in a focused 2-person squad to challenge biases, test divergent pathways, and combine research, architecture, and wireframing into a single cohesive solution.
+            Design is never a solo pursuit. Collaborate with your partner to challenge biases, test divergent pathways, and combine research, architecture, and wireframing into a single cohesive solution.
           </p>
         </div>
 
         {/* 4 Stat Highlights */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
           <div className="p-5 rounded-2xl bg-[#0E172E]/70 border border-slate-800 text-left">
-            <span className="font-mono text-3xl font-bold text-white">2</span>
-            <span className="text-xs font-mono text-cyan-400 block font-semibold mt-1">MEMBERS / TEAM (DUO)</span>
-            <span className="text-xs text-slate-400 font-light mt-1 block">30 Teams · 60 Designers</span>
+            <span className="font-mono text-3xl font-bold text-white">30</span>
+            <span className="text-xs font-mono text-cyan-400 block font-semibold mt-1">TEAMS COMPETING</span>
+            <span className="text-xs text-slate-400 font-light mt-1 block">2 designers per squad</span>
           </div>
           <div className="p-5 rounded-2xl bg-[#0E172E]/70 border border-slate-800 text-left">
-            <span className="font-mono text-3xl font-bold text-white">1</span>
-            <span className="text-xs font-mono text-blue-400 block font-semibold mt-1">REAL PROBLEM</span>
-            <span className="text-xs text-slate-400 font-light mt-1 block">Uncompromised focus</span>
+            <span className="font-mono text-3xl font-bold text-white">60</span>
+            <span className="text-xs font-mono text-blue-400 block font-semibold mt-1">PARTICIPANTS</span>
+            <span className="text-xs text-slate-400 font-light mt-1 block">Hand-picked cohort</span>
           </div>
           <div className="p-5 rounded-2xl bg-[#0E172E]/70 border border-slate-800 text-left">
             <span className="font-mono text-3xl font-bold text-white">10+</span>
@@ -109,7 +109,7 @@ export default function TeamExperience() {
 
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="font-mono text-xs text-slate-300 hidden sm:inline">2 Designers Active in Team Pod</span>
+              <span className="font-mono text-xs text-slate-300 hidden sm:inline">Designers Active in Pod</span>
             </div>
           </div>
 

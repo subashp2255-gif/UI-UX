@@ -378,7 +378,7 @@ export const TAKEAWAYS_LIST = [
   "A rigorous end-to-end user flow with logic paths",
   "A high-quality set of structural wireframes",
   "A presentation-ready design pitch defending your choices",
-  "Invaluable experience collaborating in an agile 2-person design squad",
+  "Invaluable experience collaborating in an agile design team",
   "A comprehensive starting point for a real portfolio case study",
   "Official UXORA E-Certificate of Participation & Achievement",
 ];
@@ -396,7 +396,7 @@ export const FAQ_LIST = [
   },
   {
     q: "How many people can be in a team?",
-    a: "Teams strictly consist of 2 members (30 teams total, 60 participants). If you register as a solo participant, our organizers will match you into a complementary duo team during morning check-in.",
+    a: "Teams strictly consist of 2 members (30 teams total, 60 participants). If you register as a solo participant, our organizers will pair you with a complementary designer during morning check-in.",
     category: "Teams",
   },
   {
@@ -411,7 +411,7 @@ export const FAQ_LIST = [
   },
   {
     q: "Is this only about making beautiful UI?",
-    a: "Absolutely not. This is a learning-focused UX hackathon. The highest focus is on Wireframe Quality and Problem Understanding. Usability and reasoning trump flashy colors.",
+    a: "Absolutely not. This is a learning-focused UX hackathon. The highest weighted criterion is Wireframe Quality (20%) and Problem Understanding (15%). Usability and reasoning trump flashy colors.",
     category: "Judging",
   },
 ];

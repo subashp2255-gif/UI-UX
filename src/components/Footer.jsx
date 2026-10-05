@@ -43,7 +43,7 @@ export default function Footer({ onOpenRegister }) {
               EVENT NAVIGATION
             </h4>
             <ul className="space-y-2 font-mono text-xs text-slate-400">
-              {NAV_LINKS.slice(0, 3).map(link => (
+              {NAV_LINKS.slice(0, 4).map(link => (
                 <li key={link.name}>
                   <a href={link.href} className="hover:text-cyan-400 transition-colors">
                     {link.name}
@@ -53,13 +53,13 @@ export default function Footer({ onOpenRegister }) {
             </ul>
           </div>
 
-          {/* Program Overview */}
+          {/* Program Breakdown */}
           <div>
             <h4 className="font-mono text-xs uppercase tracking-wider text-white font-bold mb-4">
-              PROGRAM OVERVIEW
+              PROGRAM & RUBRIC
             </h4>
             <ul className="space-y-2 font-mono text-xs text-slate-400">
-              {NAV_LINKS.slice(3).map(link => (
+              {NAV_LINKS.slice(4).map(link => (
                 <li key={link.name}>
                   <a href={link.href} className="hover:text-cyan-400 transition-colors">
                     {link.name}

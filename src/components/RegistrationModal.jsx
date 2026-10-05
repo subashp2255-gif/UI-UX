@@ -96,7 +96,7 @@ export default function RegistrationModal({ isOpen, onClose }) {
                 }`}
               >
                 <Users className="w-3.5 h-3.5" />
-                <span>2-PERSON TEAM</span>
+                <span>5-PERSON TEAM</span>
               </button>
               <button
                 type="button"

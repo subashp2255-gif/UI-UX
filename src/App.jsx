@@ -44,7 +44,7 @@ export default function App() {
         {/* 04. Morning Learning Series (09:00 - 11:50) */}
         <LearningTimeline />
 
-        {/* 05. The Challenge (3 Problems, 12 Teams) */}
+        {/* 05. The Challenge */}
         <Challenge />
 
         {/* 06. 6-Stage Build Process */}
@@ -56,16 +56,16 @@ export default function App() {
         {/* 08. Collaborative Team Experience & Whiteboard */}
         <TeamExperience />
 
-        {/* 08. Final Presentation Architecture (7 Steps) */}
+        {/* 09. Final Presentation Architecture (7 Steps) */}
         <FinalPresentation />
 
-        {/* 09. Who Is This For? & Manifesto Quote */}
+        {/* 10. Who Is This For? & Manifesto Quote */}
         <Audience onOpenRegister={handleOpenRegister} />
 
-        {/* 10. Outcomes Checklist & Official E-Certificate */}
+        {/* 11. Outcomes Checklist & Official E-Certificate */}
         <Takeaways onOpenRegister={handleOpenRegister} />
 
-        {/* 11. Interactive FAQ Accordion */}
+        {/* 14. Interactive FAQ Accordion */}
         <FAQ />
 
         {/* 15. Final Climax Call To Action */}
