@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, ArrowDown, Sparkles, MapPin, Calendar, Layout } from 'lucide-react';
+import { ArrowRight, ArrowDown, Sparkles, MapPin, Calendar } from 'lucide-react';
 import { EVENT_INFO, HERO_STATS } from '../data/hackathonData';
 
 export default function Hero({ onOpenRegister }) {
@@ -216,40 +216,6 @@ export default function Hero({ onOpenRegister }) {
                       </div>
                     );
                   })}
-                </div>
-
-                {/* Dynamic Wireframe Prototype Preview Card based on active node */}
-                <div className="mt-4 p-4 rounded-xl bg-[#07080E]/95 border border-cyan-500/20 font-mono text-xs">
-                  <div className="flex items-center justify-between text-[11px] text-slate-400 pb-2 border-b border-slate-800">
-                    <span className="text-cyan-400 font-bold flex items-center gap-1.5">
-                      <Layout className="w-3.5 h-3.5" />
-                      INSPECTOR: {heroNodes[activeNode].label}
-                    </span>
-                    <span className="text-[10px] text-slate-500">STAGE 0{activeNode + 1}/05</span>
-                  </div>
-
-                  {/* Wireframe Mockup Fragment */}
-                  <div className="mt-3 space-y-2">
-                    <div className="flex items-center gap-2">
-                      <div className="w-12 h-2 rounded bg-cyan-400/40" />
-                      <div className="flex-1 h-2 rounded bg-slate-800" />
-                    </div>
-                    <div className="grid grid-cols-3 gap-2 py-1">
-                      <div className="h-10 rounded border border-dashed border-cyan-500/40 bg-cyan-950/20 flex flex-col justify-center items-center text-[9px] text-cyan-300">
-                        <span>[CARD_01]</span>
-                      </div>
-                      <div className="h-10 rounded border border-dashed border-blue-500/40 bg-blue-950/20 flex flex-col justify-center items-center text-[9px] text-blue-300">
-                        <span>[CARD_02]</span>
-                      </div>
-                      <div className="h-10 rounded border border-dashed border-purple-500/40 bg-purple-950/20 flex flex-col justify-center items-center text-[9px] text-purple-300">
-                        <span>[ACTION]</span>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-between text-[10px] text-slate-400 pt-1">
-                      <span className="text-slate-500">Click any stage above to inspect UX logic flow</span>
-                      <span className="text-cyan-300">Validated ✓</span>
-                    </div>
-                  </div>
                 </div>
 
               </div>
