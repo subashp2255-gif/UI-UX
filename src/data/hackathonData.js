@@ -4,7 +4,7 @@ export const EVENT_INFO = {
   subtitle: "A Learning-Based UI/UX Hackathon",
   date: "08 October 2026",
   time: "9:00 AM – 4:30 PM",
-  venue: "IECC Hall, Bannari Amman Institute of Technology",
+  venue: "Venue details will be intimated later",
   organizer: "UI/UX Community",
   institution: "Bannari Amman Institute of Technology",
   status: "Registrations Open",
@@ -305,7 +305,7 @@ export const SCHEDULE_PHASES = [
     accent: "border-cyan-500/40 text-cyan-400",
     glow: "rgba(0, 210, 255, 0.15)",
     items: [
-      { time: "08:45 AM", title: "Check-in & Kit Distribution", room: "IECC Lobby" },
+      { time: "08:45 AM", title: "Check-in & Kit Distribution", room: "Main Lobby" },
       { time: "09:00 AM", title: "UI/UX Basics & Mental Models", room: "Main Stage" },
       { time: "09:30 AM", title: "Case Study Breakdown & Storytelling", room: "Main Stage" },
       { time: "10:00 AM", title: "User Journey & User Flow Architecture", room: "Main Stage" },
@@ -337,10 +337,10 @@ export const SCHEDULE_PHASES = [
     accent: "border-purple-500/40 text-purple-400",
     glow: "rgba(124, 77, 255, 0.15)",
     items: [
-      { time: "04:00 PM", title: "Top Pitch Showcases & Jury Q&A", room: "IECC Auditorium" },
+      { time: "04:00 PM", title: "Top Pitch Showcases & Jury Q&A", room: "Auditorium" },
       { time: "04:20 PM", title: "Jury Deliberation & Scoring Synthesis", room: "Jury Room" },
-      { time: "04:25 PM", title: "Award Ceremony & E-Certificate Reveal", room: "IECC Auditorium" },
-      { time: "04:30 PM", title: "Closing Remarks & Networking Session", room: "IECC Auditorium" },
+      { time: "04:25 PM", title: "Award Ceremony & E-Certificate Reveal", room: "Auditorium" },
+      { time: "04:30 PM", title: "Closing Remarks & Networking Session", room: "Auditorium" },
     ],
   },
 ];
@@ -373,6 +373,7 @@ export const AUDIENCE_GROUPS = [
 ];
 
 export const TAKEAWAYS_LIST = [
+  "Reward points and activity points will be provided to participants",
   "A practical, hands-on UI/UX experience guided by active mentors",
   "A complete, battle-tested problem-solving methodology",
   "A rigorous end-to-end user flow with logic paths",

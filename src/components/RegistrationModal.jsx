@@ -255,14 +255,14 @@ export default function RegistrationModal({ isOpen, onClose }) {
             </h3>
 
             <p className="text-xs text-slate-300 font-light max-w-sm mx-auto mb-6">
-              Your pass has been allocated for the cohort. Check-in starts at 8:45 AM at IECC Hall.
+              Your pass has been allocated for the cohort. Check-in starts at 8:45 AM. Venue details will be intimated later.
             </p>
 
             {/* Futuristic Pass Card */}
             <div className="p-6 rounded-2xl bg-[#07080E] border-2 border-cyan-400/50 text-left font-mono text-xs mb-6 relative overflow-hidden shadow-2xl">
               <div className="flex items-center justify-between pb-3 border-b border-slate-800">
                 <span className="text-cyan-400 font-bold">UXORA // DELEGATE PASS</span>
-                <span className="text-slate-500">IECC_BIT</span>
+                <span className="text-slate-500">BIT_CAMPUS</span>
               </div>
 
               <div className="py-4 space-y-2">

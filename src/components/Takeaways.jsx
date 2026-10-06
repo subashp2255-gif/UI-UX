@@ -83,6 +83,10 @@ export default function Takeaways({ onOpenRegister }) {
                   <span className="text-slate-500">EVENT DATE</span>
                   <span className="text-white">{EVENT_INFO.date}</span>
                 </div>
+                <div className="flex items-center justify-between pb-2 border-b border-slate-800">
+                  <span className="text-slate-500">POINTS ALLOCATION</span>
+                  <span className="text-cyan-400 font-bold">Reward & Activity Points Provided</span>
+                </div>
                 <div className="flex items-center justify-between">
                   <span className="text-slate-500">SECURITY</span>
                   <span className="text-emerald-400 flex items-center gap-1">

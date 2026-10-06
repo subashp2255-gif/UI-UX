@@ -54,7 +54,7 @@ export default function Hero({ onOpenRegister }) {
             </p>
 
             {/* Event Key Meta Pill Strip */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-xl mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-xl mb-4">
               <div className="flex items-center gap-2.5 p-2.5 rounded-lg bg-[#0E172E]/80 border border-slate-800 text-xs font-mono text-slate-300">
                 <Calendar className="w-4 h-4 text-cyan-400 shrink-0" />
                 <div className="flex flex-col">
@@ -66,7 +66,7 @@ export default function Hero({ onOpenRegister }) {
                 <MapPin className="w-4 h-4 text-purple-400 shrink-0" />
                 <div className="flex flex-col">
                   <span className="text-[10px] text-slate-500 uppercase">Venue</span>
-                  <span className="text-white font-medium">IECC Hall, BIT</span>
+                  <span className="text-white font-medium leading-tight">Venue details will be intimated later</span>
                 </div>
               </div>
               <div className="flex items-center gap-2.5 p-2.5 rounded-lg bg-[#0E172E]/80 border border-slate-800 text-xs font-mono text-slate-300">
@@ -75,6 +75,21 @@ export default function Hero({ onOpenRegister }) {
                   <span className="text-[10px] text-slate-500 uppercase">Credentials</span>
                   <span className="text-white font-medium">E-Certificates</span>
                 </div>
+              </div>
+            </div>
+
+            {/* Event Highlight: Reward & Activity Points */}
+            <div className="p-3.5 sm:p-4 rounded-xl bg-[#0E172E]/90 border border-cyan-500/30 w-full max-w-xl mb-8 flex items-start gap-3.5 shadow-lg shadow-cyan-500/5">
+              <div className="w-9 h-9 rounded-lg bg-blue-600/20 text-cyan-400 border border-cyan-400/30 flex items-center justify-center shrink-0 mt-0.5">
+                <Sparkles className="w-4 h-4" />
+              </div>
+              <div>
+                <h3 className="text-sm font-display font-bold text-white tracking-wide">
+                  Reward & Activity Points
+                </h3>
+                <p className="text-xs text-slate-300 font-light mt-0.5">
+                  Reward points and activity points will be provided to participants.
+                </p>
               </div>
             </div>
 

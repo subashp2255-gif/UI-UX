@@ -29,7 +29,7 @@ export default function Footer({ onOpenRegister }) {
             <div className="pt-2 text-xs font-mono text-cyan-400/90 space-y-1">
               <div className="flex items-center gap-2">
                 <MapPin className="w-3.5 h-3.5 text-slate-500 shrink-0" />
-                <span>IECC Hall, Bannari Amman Institute of Technology</span>
+                <span>Venue details will be intimated later</span>
               </div>
               <div className="text-slate-500 pl-5">
                 Sathyamangalam, Erode, Tamil Nadu 638401

@@ -102,7 +102,7 @@ export default function Challenge() {
 
                 <div className="mt-4 pt-3 flex items-center justify-between text-[11px] font-mono text-slate-500 border-t border-slate-800/50">
                   <span>Reveal: {item.releaseTime}</span>
-                  <span className="text-cyan-400/80">IECC Main Stage</span>
+                  <span className="text-cyan-400/80">Main Stage</span>
                 </div>
               </div>
             </div>

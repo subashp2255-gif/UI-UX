@@ -115,7 +115,7 @@ export default function Navbar({ onOpenRegister }) {
             <div className="pt-4 flex flex-col gap-3">
               <div className="flex items-center justify-between text-xs font-mono text-slate-400 px-1">
                 <span>{EVENT_INFO.date}</span>
-                <span className="text-cyan-400">IECC Hall, BIT</span>
+                <span className="text-cyan-400">Venue details will be intimated later</span>
               </div>
               <button
                 type="button"

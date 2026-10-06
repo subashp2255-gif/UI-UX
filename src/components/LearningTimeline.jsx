@@ -100,7 +100,7 @@ export default function LearningTimeline() {
 
                 <div className="flex items-center gap-2 text-xs font-mono text-cyan-400">
                   <MapPin className="w-3.5 h-3.5" />
-                  <span>IECC Main Hall / Lab</span>
+                  <span>Venue details will be intimated later</span>
                 </div>
               </div>
 
