@@ -128,14 +128,16 @@ export default function Experience() {
         </div>
 
         {/* Bottom Flow Ribbon */}
-        <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-slate-400 bg-[#0E172E]/50 p-4 rounded-xl border border-slate-800/80 text-center">
-          <span className="text-cyan-400 font-bold">01 LEARN</span>
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-mono text-slate-400 bg-[#0E172E]/50 p-4 rounded-xl border border-slate-800/80 text-center">
+          <span className="text-cyan-400 font-bold">01 LEARN UI/UX</span>
           <ArrowRight className="w-3.5 h-3.5 text-slate-600 hidden sm:inline" />
-          <span className="text-blue-400 font-bold">02 BUILD</span>
+          <span className="text-blue-400 font-bold">02 RESEARCH</span>
           <ArrowRight className="w-3.5 h-3.5 text-slate-600 hidden sm:inline" />
-          <span className="text-purple-400 font-bold">03 PRESENT</span>
+          <span className="text-emerald-400 font-bold">03 IMPLEMENT</span>
+          <ArrowRight className="w-3.5 h-3.5 text-slate-600 hidden sm:inline" />
+          <span className="text-purple-400 font-bold">04 PRESENT</span>
           <span className="text-slate-600 mx-2 hidden sm:inline">|</span>
-          <span className="text-slate-400">Continuous Mentor Guidance Throughout All 3 Stages</span>
+          <span className="text-slate-400">Continuous Mentor Guidance Throughout All 4 Stages</span>
         </div>
 
       </div>
