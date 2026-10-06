@@ -27,15 +27,11 @@ export default function Hero({ onOpenRegister }) {
             {/* Eyebrow Label */}
             <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#0E172E] border border-cyan-500/25 mb-6 shadow-[0_0_15px_rgba(0,210,255,0.15)]">
               <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-400"></span>
               </span>
-              <span className="font-mono text-xs uppercase tracking-widest text-cyan-300 font-semibold">
-                UI/UX HACKATHON · 2026
-              </span>
-              <span className="w-[1px] h-3 bg-slate-700 mx-0.5" />
-              <span className="font-mono text-[11px] text-slate-400 hidden sm:inline">
-                BIT CAMPUS
+              <span className="font-mono text-xs text-slate-300 font-semibold">
+                Organized by the UI/UX Community · Bannari Amman Institute of Technology
               </span>
             </div>
 
@@ -133,11 +129,6 @@ export default function Hero({ onOpenRegister }) {
               ))}
             </div>
 
-            {/* Organizer Credential */}
-            <div className="mt-8 text-xs font-mono text-slate-500 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
-              <span>Organized by the UI/UX Community · Bannari Amman Institute of Technology</span>
-            </div>
 
           </div>
 
