@@ -1,9 +1,84 @@
-import React, { useState } from 'react';
-import { ArrowRight, ArrowDown, Sparkles, MapPin, Calendar } from 'lucide-react';
-import { EVENT_INFO, HERO_STATS } from '../data/hackathonData';
+import React, { useState, useRef } from 'react';
+import {
+  ArrowRight,
+  ArrowDown,
+  Sparkles,
+  MapPin,
+  Calendar,
+  Trophy,
+  Medal,
+  Award,
+  Crown,
+  Users,
+  ChevronRight,
+  ChevronLeft,
+} from 'lucide-react';
+import { motion, useReducedMotion } from 'framer-motion';
+import confetti from 'canvas-confetti';
+import { EVENT_INFO, HERO_STATS, TOP_WINNERS } from '../data/hackathonData';
+
+const WINNER_THEMES = {
+  amber: {
+    border: 'border-amber-400/50 hover:border-amber-300',
+    glow: 'shadow-[0_0_24px_rgba(245,158,11,0.18)] hover:shadow-[0_0_36px_rgba(245,158,11,0.35)]',
+    bg: 'bg-gradient-to-b from-[#1C1709]/95 via-[#0E172E]/95 to-[#07080E]/95',
+    problemTag: 'text-amber-400 bg-amber-950/70 border border-amber-500/40',
+    iconBg: 'bg-amber-400/15 text-amber-300 border-amber-400/30',
+    teamText: 'text-amber-400',
+    teamGlow: 'drop-shadow-[0_0_14px_rgba(251,191,36,0.55)]',
+    badge: 'bg-amber-500/15 text-amber-300 border border-amber-500/40',
+    bullet: 'bg-amber-400',
+  },
+  emerald: {
+    border: 'border-emerald-400/50 hover:border-emerald-300',
+    glow: 'shadow-[0_0_24px_rgba(16,185,129,0.18)] hover:shadow-[0_0_36px_rgba(16,185,129,0.35)]',
+    bg: 'bg-gradient-to-b from-[#081B16]/95 via-[#0E172E]/95 to-[#07080E]/95',
+    problemTag: 'text-emerald-400 bg-emerald-950/70 border border-emerald-500/40',
+    iconBg: 'bg-emerald-400/15 text-emerald-300 border-emerald-400/30',
+    teamText: 'text-emerald-400',
+    teamGlow: 'drop-shadow-[0_0_14px_rgba(52,211,153,0.55)]',
+    badge: 'bg-emerald-500/15 text-emerald-300 border border-emerald-500/40',
+    bullet: 'bg-emerald-400',
+  },
+  cyan: {
+    border: 'border-cyan-400/50 hover:border-cyan-300',
+    glow: 'shadow-[0_0_24px_rgba(0,210,255,0.18)] hover:shadow-[0_0_36px_rgba(0,210,255,0.35)]',
+    bg: 'bg-gradient-to-b from-[#091829]/95 via-[#0E172E]/95 to-[#07080E]/95',
+    problemTag: 'text-cyan-400 bg-cyan-950/70 border border-cyan-500/40',
+    iconBg: 'bg-cyan-400/15 text-cyan-300 border-cyan-400/30',
+    teamText: 'text-cyan-400',
+    teamGlow: 'drop-shadow-[0_0_14px_rgba(34,211,238,0.55)]',
+    badge: 'bg-cyan-500/15 text-cyan-300 border border-cyan-500/40',
+    bullet: 'bg-cyan-400',
+  },
+  purple: {
+    border: 'border-purple-400/50 hover:border-purple-300',
+    glow: 'shadow-[0_0_24px_rgba(168,85,247,0.18)] hover:shadow-[0_0_36px_rgba(168,85,247,0.35)]',
+    bg: 'bg-gradient-to-b from-[#140C26]/95 via-[#0E172E]/95 to-[#07080E]/95',
+    problemTag: 'text-purple-400 bg-purple-950/70 border border-purple-500/40',
+    iconBg: 'bg-purple-400/15 text-purple-300 border-purple-400/30',
+    teamText: 'text-purple-400',
+    teamGlow: 'drop-shadow-[0_0_14px_rgba(192,132,252,0.55)]',
+    badge: 'bg-purple-500/15 text-purple-300 border border-purple-500/40',
+    bullet: 'bg-purple-400',
+  },
+  rose: {
+    border: 'border-rose-400/50 hover:border-rose-300',
+    glow: 'shadow-[0_0_24px_rgba(244,63,94,0.18)] hover:shadow-[0_0_36px_rgba(244,63,94,0.35)]',
+    bg: 'bg-gradient-to-b from-[#1F0B17]/95 via-[#0E172E]/95 to-[#07080E]/95',
+    problemTag: 'text-rose-400 bg-rose-950/70 border border-rose-500/40',
+    iconBg: 'bg-rose-400/15 text-rose-300 border-rose-400/30',
+    teamText: 'text-rose-400',
+    teamGlow: 'drop-shadow-[0_0_14px_rgba(251,113,133,0.55)]',
+    badge: 'bg-rose-500/15 text-rose-300 border border-rose-500/40',
+    bullet: 'bg-rose-400',
+  },
+};
 
 export default function Hero({ onOpenRegister }) {
   const [activeNode, setActiveNode] = useState(2); // Default to 'USER FLOW'
+  const carouselRef = useRef(null);
+  const shouldReduceMotion = useReducedMotion();
 
   const heroNodes = [
     { id: 0, label: "PROBLEM", sub: "Pain Point & Context", tag: "INPUT", icon: "!" },
@@ -13,42 +88,237 @@ export default function Hero({ onOpenRegister }) {
     { id: 4, label: "SOLUTION", sub: "Verified Experience", tag: "OUTPUT", icon: "✦" },
   ];
 
+  const triggerConfetti = () => {
+    try {
+      confetti({
+        particleCount: 75,
+        spread: 80,
+        origin: { y: 0.45 },
+        colors: ['#F59E0B', '#10B981', '#00D2FF', '#A855F7', '#F43F5E', '#FFFFFF'],
+      });
+    } catch {
+      // Fallback
+    }
+  };
+
+  const scrollCarousel = (direction) => {
+    if (carouselRef.current) {
+      const scrollAmount = direction === 'left' ? -290 : 290;
+      carouselRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: shouldReduceMotion
+        ? { duration: 0 }
+        : { staggerChildren: 0.08, delayChildren: 0.1 },
+    },
+  };
+
+  const cardVariants = {
+    hidden: shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 16 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.45, ease: [0.25, 1, 0.5, 1] },
+    },
+  };
+
   return (
-    <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+    <section id="hero" className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
       {/* Background Section Ambient Light */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-gradient-to-tr from-cyan-500/10 via-blue-600/10 to-purple-600/10 blur-[130px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[520px] bg-gradient-to-tr from-cyan-500/10 via-blue-600/10 to-purple-600/10 blur-[130px] pointer-events-none" />
+      <div className="absolute top-1/2 right-10 w-96 h-96 bg-amber-500/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        {/* ========================================================
+            01. MAIN HERO HEADLINE & BRANDING (UXORA 2026)
+            ======================================================== */}
+        <div className="flex flex-col items-start max-w-4xl mb-10">
           
-          {/* Left Column: Editorial & Value Proposition */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left">
-            
-            {/* Eyebrow Label */}
-            <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#0E172E] border border-cyan-500/25 mb-6 shadow-[0_0_15px_rgba(0,210,255,0.15)]">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-400"></span>
-              </span>
-              <span className="font-mono text-xs text-slate-300 font-semibold">
-                Organized by the UI/UX Community · Bannari Amman Institute of Technology
-              </span>
+          {/* Eyebrow Label with Results Announce */}
+          <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-[#0E172E] border border-cyan-500/25 mb-5 shadow-[0_0_15px_rgba(0,210,255,0.15)]">
+            <span className="flex h-2 w-2 relative">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
+            </span>
+            <span className="font-mono text-xs text-slate-300 font-semibold">
+              UXORA 2026 · Official Results Announced · Bannari Amman Institute of Technology
+            </span>
+          </div>
+
+          {/* Main Headline */}
+          <h1 className="text-3xl sm:text-5xl md:text-6xl xl:text-7xl font-display font-extrabold tracking-tight text-white leading-[1.08] mb-4">
+            Learn UI/UX. <br className="hidden sm:block" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-cyan-400 glow-text-cyan">
+              Solve a Real Problem.
+            </span> <br />
+            Build the Experience.
+          </h1>
+
+          {/* Supporting Copy */}
+          <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-3xl font-light">
+            A one-day learning-based UI/UX hackathon where participants master fundamental product mechanics, deconstruct user briefs, and craft verified interactive prototypes.
+          </p>
+        </div>
+
+        {/* ========================================================
+            02. TOP 5 WINNERS SHOWCASE (Directly in Hero)
+            ======================================================== */}
+        <div className="mb-14 relative">
+          
+          {/* Showcase Section Header */}
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
+            <div>
+              <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-amber-400 mb-2 bg-amber-950/50 px-3 py-1 rounded-full border border-amber-500/30">
+                <Trophy className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <span>UXORA 2026 OFFICIAL RESULTS</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-extrabold text-white tracking-tight flex items-center gap-2.5">
+                <span className="text-xl sm:text-2xl">🏆</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-400">
+                  TOP 5 WINNERS
+                </span>
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-300 font-light mt-1">
+                Celebrating the winning team from each problem statement at UXORA 2026
+              </p>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-display font-extrabold tracking-tight text-white leading-[1.08] mb-6">
-              Learn UI/UX. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-cyan-400 glow-text-cyan">
-                Solve a Real Problem.
-              </span> <br />
-              Build the Experience.
-            </h1>
+            {/* Interactive Celebration Button & Carousel Navigation */}
+            <div className="flex items-center gap-2.5 sm:self-end">
+              <button
+                type="button"
+                onClick={triggerConfetti}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-amber-500/15 to-yellow-500/15 hover:from-amber-500/25 hover:to-yellow-500/25 text-amber-300 border border-amber-500/40 font-mono text-xs font-semibold cursor-pointer transition-all hover:scale-105 active:scale-95 shadow-sm shadow-amber-500/10"
+                title="Celebrate the winning teams with confetti"
+              >
+                <span>🎉</span>
+                <span>Celebrate Winners</span>
+              </button>
 
-            {/* Supporting Copy */}
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mb-8 font-light">
-              A one-day learning-based UI/UX hackathon where you master the fundamental mechanics of UX and UI in the morning, and put them into practice by solving a real-world problem with your team.
-            </p>
+              {/* Mobile Carousel Arrow Controls */}
+              <div className="flex sm:hidden items-center gap-1">
+                <button
+                  type="button"
+                  onClick={() => scrollCarousel('left')}
+                  className="p-1.5 rounded-lg bg-[#0E172E] border border-slate-700 text-slate-300 hover:text-white"
+                  aria-label="Previous winner"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollCarousel('right')}
+                  className="p-1.5 rounded-lg bg-[#0E172E] border border-slate-700 text-slate-300 hover:text-white"
+                  aria-label="Next winner"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+          </div>
 
+          {/* 5 Winners Showcase Cards Grid / Carousel */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            ref={carouselRef}
+            className="flex sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4 overflow-x-auto sm:overflow-visible snap-x snap-mandatory pb-3 sm:pb-0 scrollbar-none"
+          >
+            {TOP_WINNERS.map((winner) => {
+              const theme = WINNER_THEMES[winner.theme] || WINNER_THEMES.cyan;
+
+              return (
+                <motion.div
+                  key={winner.problemId}
+                  variants={cardVariants}
+                  whileHover={shouldReduceMotion ? {} : { y: -5 }}
+                  onClick={triggerConfetti}
+                  className={`group relative rounded-2xl ${theme.bg} border ${theme.border} p-4 sm:p-5 flex flex-col justify-between transition-all duration-300 cursor-pointer ${theme.glow} min-w-[270px] sm:min-w-0 flex-shrink-0 sm:flex-shrink snap-start`}
+                >
+                  <div>
+                    {/* Top Section: Problem Statement Number & Name */}
+                    <div className="pb-3 border-b border-slate-800/80">
+                      <div className="flex items-center justify-between mb-1.5">
+                        <span className={`inline-flex items-center font-mono text-[10px] sm:text-[11px] font-bold tracking-wider px-2 py-0.5 rounded-md ${theme.problemTag}`}>
+                          {winner.problemLabel}
+                        </span>
+                        <div className={`w-6 h-6 rounded-md flex items-center justify-center border ${theme.iconBg}`}>
+                          <Trophy className="w-3.5 h-3.5" />
+                        </div>
+                      </div>
+
+                      <h3 className="text-sm sm:text-base font-display font-extrabold text-white group-hover:text-cyan-200 transition-colors tracking-tight leading-snug">
+                        {winner.problem}
+                      </h3>
+                      <p className="text-[10px] sm:text-[11px] font-mono text-slate-400 mt-0.5 truncate">
+                        {winner.category}
+                      </p>
+                    </div>
+
+                    {/* Middle Section: Prominent Highlighted Team Number */}
+                    <div className="py-4 my-3 flex flex-col items-center justify-center rounded-xl bg-[#07080E]/90 border border-slate-800/90 group-hover:border-slate-700/80 transition-colors shadow-inner">
+                      <span className="text-[10px] font-mono uppercase tracking-widest text-slate-400 mb-0.5">
+                        TEAM
+                      </span>
+                      <div className={`font-mono text-3xl sm:text-4xl font-extrabold tracking-tight ${theme.teamText} ${theme.teamGlow}`}>
+                        {winner.teamId}
+                      </div>
+                    </div>
+
+                    {/* 1st Place Winner Status Badge */}
+                    <div className="flex justify-center mb-1">
+                      <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-lg font-mono text-[10px] sm:text-[11px] font-bold tracking-wider ${theme.badge} shadow-sm`}>
+                        <Trophy className="w-3.5 h-3.5 shrink-0" />
+                        <span>1ST PLACE WINNER</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Bottom Section: Team Members */}
+                  <div className="pt-3 mt-3 border-t border-slate-800/80">
+                    <div className="flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-wider text-slate-400 mb-2 font-semibold">
+                      <Users className="w-3 h-3 text-cyan-400 shrink-0" />
+                      <span>Team Members</span>
+                    </div>
+                    <div className="space-y-1.5">
+                      {winner.members.map((member, mIdx) => (
+                        <div
+                          key={mIdx}
+                          className="flex items-center gap-2 text-xs text-slate-200 font-medium tracking-tight group-hover:text-white transition-colors"
+                        >
+                          <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${theme.bullet}`} />
+                          <span className="truncate">{member}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+
+          {/* Mobile Swipe Hint Bar */}
+          <div className="flex sm:hidden items-center justify-center gap-1.5 text-slate-400 font-mono text-[11px] mt-2">
+            <span>Swipe horizontally to view all 5 winning teams</span>
+            <ChevronRight className="w-3.5 h-3.5 text-cyan-400" />
+          </div>
+        </div>
+
+        {/* ========================================================
+            03. LOWER HERO: HACKATHON OVERVIEW, CTAS, CANVAS & STATS
+            ======================================================== */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-start pt-8 border-t border-slate-800/80">
+          
+          {/* Left Column: Event Meta Pills, Highlight, CTAs & Stats */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left">
+            
             {/* Event Key Meta Pill Strip */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full max-w-xl mb-4">
               <div className="flex items-center gap-2.5 p-2.5 rounded-lg bg-[#0E172E]/80 border border-slate-800 text-xs font-mono text-slate-300">
@@ -75,7 +345,7 @@ export default function Hero({ onOpenRegister }) {
             </div>
 
             {/* Event Highlight: Reward & Activity Points */}
-            <div className="p-3.5 sm:p-4 rounded-xl bg-[#0E172E]/90 border border-cyan-500/30 w-full max-w-xl mb-8 flex items-start gap-3.5 shadow-lg shadow-cyan-500/5">
+            <div className="p-3.5 sm:p-4 rounded-xl bg-[#0E172E]/90 border border-cyan-500/30 w-full max-w-xl mb-6 flex items-start gap-3.5 shadow-lg shadow-cyan-500/5">
               <div className="w-9 h-9 rounded-lg bg-blue-600/20 text-cyan-400 border border-cyan-400/30 flex items-center justify-center shrink-0 mt-0.5">
                 <Sparkles className="w-4 h-4" />
               </div>
@@ -90,7 +360,7 @@ export default function Hero({ onOpenRegister }) {
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-4 mb-12">
+            <div className="flex flex-wrap items-center gap-4 mb-8">
               <button
                 type="button"
                 onClick={onOpenRegister}
@@ -101,16 +371,16 @@ export default function Hero({ onOpenRegister }) {
               </button>
 
               <a
-                href="#experience"
+                href="#challenge"
                 className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-mono tracking-wider text-slate-300 hover:text-white bg-[#0E172E]/60 hover:bg-[#162344] rounded-xl border border-slate-700/60 hover:border-cyan-500/30 transition-all duration-200"
               >
-                <span>Explore Hackathon</span>
+                <span>Explore Problem Briefs</span>
                 <ArrowDown className="w-4 h-4 text-cyan-400" />
               </a>
             </div>
 
             {/* Event Statistics Matrix */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full pt-8 border-t border-slate-800/80">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full pt-6 border-t border-slate-800/80">
               {HERO_STATS.map((stat, idx) => (
                 <div key={idx} className="relative group">
                   <div className="flex items-baseline gap-1">
@@ -128,7 +398,6 @@ export default function Hero({ onOpenRegister }) {
                 </div>
               ))}
             </div>
-
 
           </div>
 
@@ -236,6 +505,7 @@ export default function Hero({ onOpenRegister }) {
           </div>
 
         </div>
+
       </div>
     </section>
   );

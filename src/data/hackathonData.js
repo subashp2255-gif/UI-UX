@@ -31,6 +31,64 @@ export const HERO_STATS = [
   { value: "01", label: "Day", subtext: "Hands-on intensive" },
 ];
 
+export const TOP_WINNERS = [
+  {
+    problemId: "01",
+    problemLabel: "PROBLEM 01",
+    problem: "Senior Citizen",
+    problemBrief: "Senior Citizen Daily Assistant",
+    category: "Elderly Care & Accessibility",
+    teamId: "UX-06",
+    place: "1ST PLACE WINNER",
+    members: ["Mithun NB", "Harish Karthick KBS"],
+    theme: "amber",
+  },
+  {
+    problemId: "02",
+    problemLabel: "PROBLEM 02",
+    problem: "Farmer Market",
+    problemBrief: "Farmer Market Price and Weather Guide",
+    category: "AgriTech & Regional UX",
+    teamId: "UX-17",
+    place: "1ST PLACE WINNER",
+    members: ["Devamithra RG", "Hashini OS"],
+    theme: "emerald",
+  },
+  {
+    problemId: "03",
+    problemLabel: "PROBLEM 03",
+    problem: "Domestic Worker",
+    problemBrief: "Domestic Worker & Local Service Booking",
+    category: "Hyperlocal & Trust Systems",
+    teamId: "UX-33",
+    place: "1ST PLACE WINNER",
+    members: ["Navinitha S", "Jeevitha S"],
+    theme: "cyan",
+  },
+  {
+    problemId: "04",
+    problemLabel: "PROBLEM 04",
+    problem: "Government Scheme",
+    problemBrief: "Government Scheme Finder",
+    category: "Civic Tech & Public Welfare",
+    teamId: "UX-28",
+    place: "1ST PLACE WINNER",
+    members: ["Devadharshini S", "Bavadharani S"],
+    theme: "purple",
+  },
+  {
+    problemId: "05",
+    problemLabel: "PROBLEM 05",
+    problem: "Blood Donor",
+    problemBrief: "Blood Donor Emergency Connect",
+    category: "Emergency & Lifesaving Flow",
+    teamId: "UX-10",
+    place: "1ST PLACE WINNER",
+    members: ["Vishvavelan RB", "Midhunkumar M"],
+    theme: "rose",
+  },
+];
+
 export const EXPERIENCE_STEPS = [
   {
     number: "01",
