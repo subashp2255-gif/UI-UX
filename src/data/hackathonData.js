@@ -156,7 +156,6 @@ export const CHALLENGE_STATEMENTS = [
     problem: "Elderly people struggle with apps for medicines, bills, and appointments.",
     users: "Seniors, family caregivers.",
     challenge: "Design large, simple, error-proof interactions.",
-    teamsAssigned: "Teams 01 – 06",
     colorTheme: "amber",
   },
   {
@@ -168,7 +167,6 @@ export const CHALLENGE_STATEMENTS = [
     problem: "Farmers lack clear, timely information on crop prices, weather, and selling points.",
     users: "Small farmers, agri-officers.",
     challenge: "Design for low literacy and regional languages.",
-    teamsAssigned: "Teams 07 – 12",
     colorTheme: "emerald",
   },
   {
@@ -180,7 +178,6 @@ export const CHALLENGE_STATEMENTS = [
     problem: "Finding trusted electricians, plumbers, maids, or tutors depends on word of mouth.",
     users: "Households, service workers.",
     challenge: "Build trust and make booking simple for both sides.",
-    teamsAssigned: "Teams 13 – 18",
     colorTheme: "blue",
   },
   {
@@ -192,7 +189,6 @@ export const CHALLENGE_STATEMENTS = [
     problem: "Citizens don't know which schemes they qualify for or how to apply.",
     users: "Citizens, local help centers.",
     challenge: "Simplify eligibility and the application steps.",
-    teamsAssigned: "Teams 19 – 24",
     colorTheme: "purple",
   },
   {
@@ -204,7 +200,6 @@ export const CHALLENGE_STATEMENTS = [
     problem: "In emergencies, finding donors through scattered calls and messages wastes critical time.",
     users: "Patients' families, donors, hospitals.",
     challenge: "Design a fast, trustworthy, low-friction flow.",
-    teamsAssigned: "Teams 25 – 30",
     colorTheme: "rose",
   },
 ];

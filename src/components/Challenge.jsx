@@ -8,7 +8,6 @@ import {
   Users,
   Target,
   AlertCircle,
-  ArrowRight,
   Sparkles,
 } from 'lucide-react';
 import { CHALLENGE_STATEMENTS } from '../data/hackathonData';
@@ -184,19 +183,6 @@ export default function Challenge() {
                         {item.challenge}
                       </p>
                     </div>
-                  </div>
-                </div>
-
-                {/* Footer: Allotment */}
-                <div className="pt-4 mt-3 border-t border-slate-800/90">
-                  <div className="flex items-center justify-between text-xs font-mono">
-                    <div className="flex items-center gap-2 text-cyan-300 font-bold">
-                      <ArrowRight className="w-3.5 h-3.5 text-cyan-400 group-hover:translate-x-1 transition-transform" />
-                      <span>Teams assigned:</span>
-                    </div>
-                    <span className="text-white bg-[#07080E] px-2.5 py-1 rounded-md border border-slate-700 font-semibold text-[11px]">
-                      {item.teamsAssigned}
-                    </span>
                   </div>
                 </div>
               </div>
